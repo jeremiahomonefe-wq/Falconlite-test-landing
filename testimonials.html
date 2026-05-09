@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials — Falconlite</title>
+  <meta name="description" content="Read real stories from Falconlite users across Africa who are operating globally with confidence using our financial tools.">
+
+  <!-- Google Fonts: Inter (body) and Poppins (display/headings) — Requirement 1.8 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Pre-paint theme restore — must run before stylesheet to prevent flash of wrong theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('falconlite-theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }());
+  </script>
+
+  <!-- Primary stylesheet — Requirement 1.4 -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar — shared across all pages (Requirement 2) -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">Falconlite</a>
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__links">
+          <li><a href="index.html" class="navbar__link">Home</a></li>
+          <li><a href="products.html" class="navbar__link">Products</a></li>
+          <li><a href="features.html" class="navbar__link">Features</a></li>
+          <li><a href="pricing.html" class="navbar__link">Pricing</a></li>
+          <li><a href="about.html" class="navbar__link">About</a></li>
+          <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        </ul>
+      </nav>
+      <button
+        class="navbar__theme-toggle"
+        id="themeToggle"
+        aria-label="Switch to dark mode"
+        title="Toggle theme"
+      >
+        <!-- Sun icon — shown when dark mode is active (click to go light) -->
+        <svg class="theme-icon theme-icon--sun"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon — shown when light mode is active (click to go dark) -->
+        <svg class="theme-icon theme-icon--moon"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href="#" class="btn btn--primary navbar__cta">Get Started</a>
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =====================================================================
+         Testimonials Page Hero Section
+         (Requirement 12)
+         ===================================================================== -->
+    <section class="page-hero" aria-labelledby="testimonials-hero-title">
+      <div class="container">
+        <span class="page-hero__label" data-animate>User Stories</span>
+        <h1 class="page-hero__title" id="testimonials-hero-title" data-animate data-animate-delay="100">
+          What Our Users Say
+        </h1>
+        <p class="page-hero__subtitle" data-animate data-animate-delay="200">
+          Real stories from real people across Africa who are operating globally with confidence using Falconlite.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Statistics Banner
+         (Requirement 12.3)
+         ===================================================================== -->
+    <section class="testimonials-stats-banner" aria-label="Testimonial statistics">
+      <div class="container">
+        <div class="testimonials-stats-grid">
+          <div class="testimonials-stat" data-animate>
+            <span class="testimonials-stat__value">4.9/5</span>
+            <span class="testimonials-stat__label">Average Rating</span>
+          </div>
+          <div class="testimonials-stat" data-animate data-animate-delay="100">
+            <span class="testimonials-stat__value">50,000+</span>
+            <span class="testimonials-stat__label">Reviews</span>
+          </div>
+          <div class="testimonials-stat" data-animate data-animate-delay="200">
+            <span class="testimonials-stat__value">150+</span>
+            <span class="testimonials-stat__label">Countries</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Testimonial Grid — 12 cards
+         (Requirement 12.1)
+         ===================================================================== -->
+    <section class="testimonials-full-grid" aria-labelledby="testimonials-grid-title">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <span class="section-label">Community</span>
+          <h2 class="section-title" id="testimonials-grid-title">Trusted by Thousands</h2>
+          <p class="section-subtitle">From Lagos to London, our users are breaking financial borders every day.</p>
+        </div>
+        <div class="testimonials-grid" style="margin-top: var(--space-12);">
+
+          <!-- Card 1 -->
+          <article class="testimonial-card" data-animate>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"Falconlite changed how I get paid. I receive USD from my US clients directly into my account and convert to naira at the best rates. No more waiting days for wire transfers."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">AO</div>
+              <div>
+                <p class="testimonial-card__name">Amara Okafor</p>
+                <p class="testimonial-card__role">Freelance Developer · Nigeria</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="testimonial-card" data-animate data-animate-delay="100">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"As a student in the UK, I use Falconlite to receive money from my parents in Ghana. The exchange rates are far better than any bank I've tried, and the transfers are instant."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">KA</div>
+              <div>
+                <p class="testimonial-card__name">Kwame Asante</p>
+                <p class="testimonial-card__role">Graduate Student · Ghana</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="testimonial-card" data-animate data-animate-delay="200">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"The USD virtual card is a game-changer for my e-commerce business. I can pay international suppliers and subscribe to global tools without any hassle. Highly recommended."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">ZM</div>
+              <div>
+                <p class="testimonial-card__name">Zainab Musa</p>
+                <p class="testimonial-card__role">E-commerce Entrepreneur · Nigeria</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="testimonial-card" data-animate>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"I've been using Falconlite for 18 months and it's the most reliable fintech platform I've used. Customer support is responsive and the app is incredibly intuitive."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">TN</div>
+              <div>
+                <p class="testimonial-card__name">Tunde Nwosu</p>
+                <p class="testimonial-card__role">Marketing Consultant · Nigeria</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="testimonial-card" data-animate data-animate-delay="100">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"Running a remote team across Africa and Europe, Falconlite makes payroll effortless. I pay everyone in their local currency with minimal fees. It's saved us thousands."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">FO</div>
+              <div>
+                <p class="testimonial-card__name">Fatima Ouedraogo</p>
+                <p class="testimonial-card__role">Startup Founder · Burkina Faso</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="testimonial-card" data-animate data-animate-delay="200">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"The crypto-to-fiat conversion feature is brilliant. I receive crypto payments from clients and convert to NGN instantly. The rates are transparent and competitive."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">EI</div>
+              <div>
+                <p class="testimonial-card__name">Emeka Ibe</p>
+                <p class="testimonial-card__role">Blockchain Developer · Nigeria</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 -->
+          <article class="testimonial-card" data-animate>
+            <div class="testimonial-card__stars" aria-label="4 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"I was skeptical at first, but Falconlite has proven itself over and over. My USD account details work perfectly for receiving Upwork payments. No more PayPal headaches."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">AK</div>
+              <div>
+                <p class="testimonial-card__name">Aisha Kamara</p>
+                <p class="testimonial-card__role">UX Designer · Sierra Leone</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 -->
+          <article class="testimonial-card" data-animate data-animate-delay="100">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"Falconlite's multi-currency wallet lets me hold USD, GBP, and EUR without converting immediately. I choose when to convert based on the best rates. Smart and flexible."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">BM</div>
+              <div>
+                <p class="testimonial-card__name">Bongani Mokoena</p>
+                <p class="testimonial-card__role">Import/Export Trader · South Africa</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 9 -->
+          <article class="testimonial-card" data-animate data-animate-delay="200">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"The onboarding was the fastest I've ever experienced for a financial product. Verified in under 5 minutes, card ready in seconds. This is what modern banking should feel like."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">CN</div>
+              <div>
+                <p class="testimonial-card__name">Chioma Nwachukwu</p>
+                <p class="testimonial-card__role">Content Creator · Nigeria</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 10 -->
+          <article class="testimonial-card" data-animate>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"I pay for my AWS and Google Cloud subscriptions with my Falconlite virtual card every month. Zero issues, zero declines. It just works, which is all I need."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">DO</div>
+              <div>
+                <p class="testimonial-card__name">David Osei</p>
+                <p class="testimonial-card__role">Cloud Architect · Ghana</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 11 -->
+          <article class="testimonial-card" data-animate data-animate-delay="100">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"As a diaspora Nigerian sending money home, Falconlite gives me the best rates I've found anywhere. My family receives naira within minutes. Absolutely brilliant service."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">RA</div>
+              <div>
+                <p class="testimonial-card__name">Rotimi Adeyemi</p>
+                <p class="testimonial-card__role">Software Engineer · United Kingdom</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 12 -->
+          <article class="testimonial-card" data-animate data-animate-delay="200">
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-card__quote">"I run a digital agency and Falconlite handles all our international invoicing. The GBP account details make us look professional to UK clients. It's been transformative."</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">NJ</div>
+              <div>
+                <p class="testimonial-card__name">Ngozi Jibril</p>
+                <p class="testimonial-card__role">Agency Director · Nigeria</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Video Testimonial Placeholders
+         (Requirement 12.2)
+         ===================================================================== -->
+    <section class="video-testimonials" aria-labelledby="video-testimonials-title">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <span class="section-label">Video Stories</span>
+          <h2 class="section-title" id="video-testimonials-title">Hear It Directly</h2>
+          <p class="section-subtitle">Watch real users share their Falconlite experience in their own words.</p>
+        </div>
+        <div class="video-grid">
+
+          <!-- Video card 1 -->
+          <div class="video-card" data-animate>
+            <div class="video-card__thumbnail" role="button" tabindex="0" aria-label="Play video testimonial from Amara Okafor">
+              <div class="video-card__play" aria-hidden="true">▶</div>
+            </div>
+            <div class="video-card__info">
+              <p class="video-card__name">Amara Okafor</p>
+              <p class="video-card__role">Freelance Developer · Lagos, Nigeria</p>
+            </div>
+          </div>
+
+          <!-- Video card 2 -->
+          <div class="video-card" data-animate data-animate-delay="100">
+            <div class="video-card__thumbnail" role="button" tabindex="0" aria-label="Play video testimonial from Fatima Ouedraogo">
+              <div class="video-card__play" aria-hidden="true">▶</div>
+            </div>
+            <div class="video-card__info">
+              <p class="video-card__name">Fatima Ouedraogo</p>
+              <p class="video-card__role">Startup Founder · Ouagadougou, Burkina Faso</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         User Stories — Longer Narrative Format
+         (Requirement 12.4)
+         ===================================================================== -->
+    <section class="user-stories" aria-labelledby="user-stories-title">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <span class="section-label">Deep Dives</span>
+          <h2 class="section-title" id="user-stories-title">User Stories</h2>
+          <p class="section-subtitle">How Falconlite helped real people solve real financial challenges.</p>
+        </div>
+
+        <!-- Story 1 -->
+        <article class="user-story" data-animate>
+          <div class="user-story__header">
+            <div class="user-story__avatar" aria-hidden="true">TN</div>
+            <div>
+              <p class="user-story__name">Tunde Nwosu</p>
+              <p class="user-story__role">Marketing Consultant · Lagos, Nigeria</p>
+            </div>
+          </div>
+          <div class="user-story__grid">
+            <div>
+              <p class="user-story__block-title">The Challenge</p>
+              <p class="user-story__block-text">Tunde was running a successful marketing consultancy with clients in the US and UK, but getting paid was a nightmare. Wire transfers took 5–7 days, banks charged exorbitant fees, and the exchange rates were terrible. He was losing up to 8% of every payment to fees and poor rates.</p>
+            </div>
+            <div>
+              <p class="user-story__block-title">The Solution</p>
+              <p class="user-story__block-text">Tunde signed up for Falconlite and set up his USD and GBP global accounts. He updated his invoices with his new account details and started receiving payments directly. The onboarding took less than 10 minutes and his first payment arrived the same day.</p>
+            </div>
+            <div>
+              <p class="user-story__block-title">The Outcome</p>
+              <p class="user-story__block-text">Tunde now saves over ₦200,000 per month in fees and exchange rate losses. Payments arrive within hours instead of days. He's expanded his client base to include companies in Canada and Australia, confident that getting paid will never be a problem again.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Story 2 -->
+        <article class="user-story" data-animate>
+          <div class="user-story__header">
+            <div class="user-story__avatar" aria-hidden="true">ZM</div>
+            <div>
+              <p class="user-story__name">Zainab Musa</p>
+              <p class="user-story__role">E-commerce Entrepreneur · Abuja, Nigeria</p>
+            </div>
+          </div>
+          <div class="user-story__grid">
+            <div>
+              <p class="user-story__block-title">The Challenge</p>
+              <p class="user-story__block-text">Zainab ran a thriving online store selling African fashion globally, but paying her international suppliers was a constant struggle. Her Nigerian bank card was frequently declined on international platforms, and the few payment options available charged fees that ate into her margins.</p>
+            </div>
+            <div>
+              <p class="user-story__block-title">The Solution</p>
+              <p class="user-story__block-text">Zainab got a Falconlite USD virtual card and linked it to her supplier accounts on Alibaba and other platforms. She also set up her multi-currency wallet to hold USD from her international sales, using it directly to pay suppliers without converting back and forth.</p>
+            </div>
+            <div>
+              <p class="user-story__block-title">The Outcome</p>
+              <p class="user-story__block-text">Zero payment declines since switching to Falconlite. Zainab has grown her supplier network from 3 to 12 international vendors, reduced her payment processing costs by 60%, and reinvested those savings into growing her inventory. Her business revenue has doubled in 12 months.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Bottom CTA Section
+         (Requirement 12.5)
+         ===================================================================== -->
+    <section class="cta-banner" aria-labelledby="testimonials-cta-title">
+      <div class="container">
+        <h2 class="cta-banner__title" id="testimonials-cta-title" data-animate>Join 50,000+ Users</h2>
+        <p class="cta-banner__subtitle" data-animate data-animate-delay="100">
+          Experience the financial freedom that thousands of Africans already enjoy. Get started in minutes.
+        </p>
+        <a href="#" class="btn btn--primary" data-animate data-animate-delay="200">Create Free Account</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer — shared across all pages (Requirement 3) -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">Falconlite</a>
+        <p class="footer__tagline">Global finance for Africans. Send, spend, and receive money worldwide with ease.</p>
+        <!-- Social icons -->
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Products column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Products</h4>
+        <ul class="footer__links">
+          <li><a href="products.html" class="footer__link">USD Virtual Cards</a></li>
+          <li><a href="products.html" class="footer__link">Multi-Currency Wallets</a></li>
+          <li><a href="products.html" class="footer__link">Global Accounts</a></li>
+          <li><a href="products.html" class="footer__link">Crypto Payments</a></li>
+          <li><a href="products.html" class="footer__link">Currency Conversion</a></li>
+        </ul>
+      </div>
+
+      <!-- Company column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Company</h4>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">About Us</a></li>
+          <li><a href="blog.html" class="footer__link">Blog</a></li>
+          <li><a href="careers.html" class="footer__link">Careers</a></li>
+          <li><a href="testimonials.html" class="footer__link">Testimonials</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Legal</h4>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Terms of Service</a></li>
+          <li><a href="#" class="footer__link">Cookie Policy</a></li>
+          <li><a href="#" class="footer__link">AML Policy</a></li>
+          <li><a href="#" class="footer__link">Compliance</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="footerYear"></span> Falconlite. All rights reserved.</p>
+        <p class="footer__disclaimer">Falconlite is a financial technology company, not a bank. Banking services provided by licensed partners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Primary script — defer ensures non-render-blocking (Requirement 17.5) -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>

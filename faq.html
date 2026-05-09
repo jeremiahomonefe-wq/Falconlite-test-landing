@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Falconlite</title>
+  <meta name="description" content="Find answers to frequently asked questions about Falconlite — accounts, payments, security, and more.">
+
+  <!-- Google Fonts: Inter (body) and Poppins (display/headings) — Requirement 1.8 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Pre-paint theme restore — must run before stylesheet to prevent flash of wrong theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('falconlite-theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }());
+  </script>
+
+  <!-- Primary stylesheet — Requirement 1.4 -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar — shared across all pages (Requirement 2) -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">Falconlite</a>
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__links">
+          <li><a href="index.html" class="navbar__link">Home</a></li>
+          <li><a href="products.html" class="navbar__link">Products</a></li>
+          <li><a href="features.html" class="navbar__link">Features</a></li>
+          <li><a href="pricing.html" class="navbar__link">Pricing</a></li>
+          <li><a href="about.html" class="navbar__link">About</a></li>
+          <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        </ul>
+      </nav>
+      <button
+        class="navbar__theme-toggle"
+        id="themeToggle"
+        aria-label="Switch to dark mode"
+        title="Toggle theme"
+      >
+        <!-- Sun icon — shown when dark mode is active (click to go light) -->
+        <svg class="theme-icon theme-icon--sun"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon — shown when light mode is active (click to go dark) -->
+        <svg class="theme-icon theme-icon--moon"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href="#" class="btn btn--primary navbar__cta">Get Started</a>
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =====================================================================
+         FAQ Page Hero Section
+         (Requirement 11)
+         ===================================================================== -->
+    <section class="page-hero" aria-labelledby="faq-hero-title">
+      <div class="container">
+        <span class="page-hero__label" data-animate>Help Center</span>
+        <h1 class="page-hero__title" id="faq-hero-title" data-animate data-animate-delay="100">
+          Frequently Asked Questions
+        </h1>
+        <p class="page-hero__subtitle" data-animate data-animate-delay="200">
+          Everything you need to know about Falconlite — accounts, payments, security, and more. Can't find what you're looking for? <a href="contact.html" style="color: var(--color-blue);">Contact our support team.</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Category Navigation Bar
+         (Requirement 11.4)
+         ===================================================================== -->
+    <nav class="faq-category-nav" aria-label="FAQ categories">
+      <div class="container">
+        <div class="faq-category-nav__links">
+          <a href="#faq-general" class="faq-category-nav__link">General</a>
+          <a href="#faq-payments" class="faq-category-nav__link">Payments</a>
+          <a href="#faq-security" class="faq-category-nav__link">Security</a>
+          <a href="#faq-account" class="faq-category-nav__link">Account</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =====================================================================
+         General FAQ Category
+         (Requirements 11.1, 11.2, 11.3)
+         ===================================================================== -->
+    <section class="faq-category-section" id="faq-general" aria-labelledby="faq-general-title">
+      <div class="container">
+        <h2 class="faq-category-title" id="faq-general-title" data-animate>General</h2>
+        <div class="accordion" data-accordion data-animate data-animate-delay="100">
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="gen-panel-1">
+              What is Falconlite?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="gen-panel-1" role="region">
+              <div class="accordion__panel-inner">
+                Falconlite is a global financial platform built for Africans. We provide USD virtual cards, multi-currency wallets, global bank account details, crypto payment support, and fast currency conversion — all in one app. Whether you're a freelancer getting paid internationally, a student paying tuition abroad, or a business accepting global payments, Falconlite makes it seamless.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="gen-panel-2">
+              How do I create a Falconlite account?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="gen-panel-2" role="region">
+              <div class="accordion__panel-inner">
+                Creating an account takes less than 5 minutes. Click "Get Started" on our homepage, enter your email address and create a password, then verify your identity with a government-issued ID. Once approved — usually within minutes — you'll have full access to all Falconlite features.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="gen-panel-3">
+              What currencies does Falconlite support?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="gen-panel-3" role="region">
+              <div class="accordion__panel-inner">
+                Falconlite supports over 30 currencies including USD, GBP, EUR, NGN, GHS, KES, ZAR, and more. You can hold balances in multiple currencies simultaneously in your multi-currency wallet and convert between them at competitive real-time exchange rates.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="gen-panel-4">
+              Which countries is Falconlite available in?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="gen-panel-4" role="region">
+              <div class="accordion__panel-inner">
+                Falconlite is currently available in over 150 countries, with primary support for Nigeria, Ghana, Kenya, South Africa, and other African nations. We're continuously expanding our coverage. Check our website or app for the most up-to-date list of supported countries.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="gen-panel-5">
+              Is Falconlite a bank?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="gen-panel-5" role="region">
+              <div class="accordion__panel-inner">
+                Falconlite is a financial technology company, not a bank. Banking services are provided by our licensed banking partners. Your funds are held in segregated accounts with our partner banks and are protected in accordance with applicable regulations.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Payments FAQ Category
+         (Requirements 11.1, 11.2, 11.3)
+         ===================================================================== -->
+    <section class="faq-category-section" id="faq-payments" aria-labelledby="faq-payments-title">
+      <div class="container">
+        <h2 class="faq-category-title" id="faq-payments-title" data-animate>Payments</h2>
+        <div class="accordion" data-accordion data-animate data-animate-delay="100">
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="pay-panel-1">
+              How long do international transfers take?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="pay-panel-1" role="region">
+              <div class="accordion__panel-inner">
+                Most international transfers are processed within minutes to a few hours. SWIFT transfers may take 1–3 business days depending on the destination bank. Transfers between Falconlite accounts are instant, 24/7.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="pay-panel-2">
+              What are the fees for sending money internationally?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="pay-panel-2" role="region">
+              <div class="accordion__panel-inner">
+                Falconlite charges a flat fee starting from $1 for most international transfers, with no hidden charges. The exact fee depends on the transfer amount, destination country, and your plan. You'll always see the full fee breakdown before confirming any transaction.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="pay-panel-3">
+              Can I receive payments from international clients?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="pay-panel-3" role="region">
+              <div class="accordion__panel-inner">
+                Yes. With Falconlite's Global Accounts feature, you get dedicated USD, GBP, and EUR account details (routing number, sort code, IBAN) that you can share with international clients. They can pay you via bank transfer just like paying a local account.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="pay-panel-4">
+              Does Falconlite support crypto payments?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="pay-panel-4" role="region">
+              <div class="accordion__panel-inner">
+                Yes. Falconlite supports receiving and sending payments in major cryptocurrencies including Bitcoin (BTC), Ethereum (ETH), and USDC. You can also convert crypto to fiat currency instantly at competitive rates directly within the app.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="pay-panel-5">
+              Are there daily or monthly transfer limits?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="pay-panel-5" role="region">
+              <div class="accordion__panel-inner">
+                Transfer limits vary by plan and verification level. Starter accounts can send up to $5,000/month. Growth accounts up to $50,000/month. Pro and Business accounts have higher or custom limits. You can increase your limits by completing enhanced verification in the app.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Security FAQ Category
+         (Requirements 11.1, 11.2, 11.3)
+         ===================================================================== -->
+    <section class="faq-category-section" id="faq-security" aria-labelledby="faq-security-title">
+      <div class="container">
+        <h2 class="faq-category-title" id="faq-security-title" data-animate>Security</h2>
+        <div class="accordion" data-accordion data-animate data-animate-delay="100">
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="sec-panel-1">
+              Is my money safe with Falconlite?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="sec-panel-1" role="region">
+              <div class="accordion__panel-inner">
+                Yes. Your funds are held in segregated accounts with our licensed banking partners and are never used for lending or investment. We use 256-bit AES encryption for all data, and our infrastructure is monitored 24/7 by our security team.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="sec-panel-2">
+              Does Falconlite support two-factor authentication (2FA)?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="sec-panel-2" role="region">
+              <div class="accordion__panel-inner">
+                Yes. We strongly recommend enabling 2FA on your account. Falconlite supports authenticator apps (Google Authenticator, Authy) and SMS-based 2FA. You can enable 2FA in your account security settings.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="sec-panel-3">
+              What happens if I notice an unauthorized transaction?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="sec-panel-3" role="region">
+              <div class="accordion__panel-inner">
+                If you notice any suspicious activity, freeze your card immediately from the app and contact our support team at support@falconlite.com. We have a dedicated fraud team that investigates all reports within 24 hours. You can also dispute transactions directly in the app.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="sec-panel-4">
+              Is Falconlite regulated?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="sec-panel-4" role="region">
+              <div class="accordion__panel-inner">
+                Falconlite operates in compliance with applicable financial regulations in each jurisdiction we serve. Our banking partners are fully licensed and regulated. We adhere to strict AML (Anti-Money Laundering) and KYC (Know Your Customer) policies to protect our users and the financial system.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="sec-panel-5">
+              How does Falconlite protect my personal data?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="sec-panel-5" role="region">
+              <div class="accordion__panel-inner">
+                We take data privacy seriously. All personal data is encrypted at rest and in transit. We never sell your data to third parties. You can review our full Privacy Policy for details on how we collect, use, and protect your information.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Account FAQ Category
+         (Requirements 11.1, 11.2, 11.3)
+         ===================================================================== -->
+    <section class="faq-category-section" id="faq-account" aria-labelledby="faq-account-title">
+      <div class="container">
+        <h2 class="faq-category-title" id="faq-account-title" data-animate>Account</h2>
+        <div class="accordion" data-accordion data-animate data-animate-delay="100">
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-panel-1">
+              How do I reset my password?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="acc-panel-1" role="region">
+              <div class="accordion__panel-inner">
+                Click "Forgot Password" on the login screen, enter your registered email address, and we'll send you a password reset link. The link expires after 30 minutes for security. If you don't receive the email, check your spam folder or contact support.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-panel-2">
+              Can I have multiple accounts?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="acc-panel-2" role="region">
+              <div class="accordion__panel-inner">
+                Each individual can have one personal Falconlite account. However, you can also create a separate Business account for your company. Business accounts have higher limits, team access controls, and additional features designed for businesses.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-panel-3">
+              How do I upgrade my account plan?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="acc-panel-3" role="region">
+              <div class="accordion__panel-inner">
+                You can upgrade your plan at any time from the "Settings → Plan" section in the app. Upgrades take effect immediately and you'll be charged a prorated amount for the remainder of your billing cycle. Visit our <a href="pricing.html" style="color: var(--color-blue);">Pricing page</a> to compare plans.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-panel-4">
+              How do I close my Falconlite account?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="acc-panel-4" role="region">
+              <div class="accordion__panel-inner">
+                To close your account, go to "Settings → Account → Close Account" in the app. Please ensure your balance is zero before closing. Any remaining funds must be withdrawn first. Account closure is permanent and cannot be undone. If you need help, contact our support team.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="acc-panel-5">
+              What documents do I need for KYC verification?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="acc-panel-5" role="region">
+              <div class="accordion__panel-inner">
+                For personal accounts, you'll need a valid government-issued photo ID (national ID, passport, or driver's license) and a selfie for facial verification. For business accounts, you'll also need business registration documents and proof of address. The verification process is fully digital and typically takes under 10 minutes.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         "Still have questions?" CTA Section
+         (Requirement 11.5)
+         ===================================================================== -->
+    <section class="faq-still-questions" aria-labelledby="faq-cta-title">
+      <div class="container">
+        <div data-animate>
+          <h2 class="section-title" id="faq-cta-title">Still Have Questions?</h2>
+          <p class="section-subtitle" style="margin-bottom: var(--space-8);">
+            Our support team is ready to help. Reach out and we'll get back to you within 24 hours.
+          </p>
+          <a href="contact.html" class="btn btn--primary">Contact Support</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer — shared across all pages (Requirement 3) -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">Falconlite</a>
+        <p class="footer__tagline">Global finance for Africans. Send, spend, and receive money worldwide with ease.</p>
+        <!-- Social icons -->
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Products column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Products</h4>
+        <ul class="footer__links">
+          <li><a href="products.html" class="footer__link">USD Virtual Cards</a></li>
+          <li><a href="products.html" class="footer__link">Multi-Currency Wallets</a></li>
+          <li><a href="products.html" class="footer__link">Global Accounts</a></li>
+          <li><a href="products.html" class="footer__link">Crypto Payments</a></li>
+          <li><a href="products.html" class="footer__link">Currency Conversion</a></li>
+        </ul>
+      </div>
+
+      <!-- Company column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Company</h4>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">About Us</a></li>
+          <li><a href="blog.html" class="footer__link">Blog</a></li>
+          <li><a href="careers.html" class="footer__link">Careers</a></li>
+          <li><a href="testimonials.html" class="footer__link">Testimonials</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Legal</h4>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Terms of Service</a></li>
+          <li><a href="#" class="footer__link">Cookie Policy</a></li>
+          <li><a href="#" class="footer__link">AML Policy</a></li>
+          <li><a href="#" class="footer__link">Compliance</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="footerYear"></span> Falconlite. All rights reserved.</p>
+        <p class="footer__disclaimer">Falconlite is a financial technology company, not a bank. Banking services provided by licensed partners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Primary script — defer ensures non-render-blocking (Requirement 17.5) -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>

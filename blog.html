@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Falconlite</title>
+  <meta name="description" content="Read the latest articles on fintech, Africa, crypto, and Falconlite product updates on the Falconlite blog.">
+
+  <!-- Google Fonts: Inter (body) and Poppins (display/headings) — Requirement 1.8 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Pre-paint theme restore — must run before stylesheet to prevent flash of wrong theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('falconlite-theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }());
+  </script>
+
+  <!-- Primary stylesheet — Requirement 1.4 -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar — shared across all pages (Requirement 2) -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">Falconlite</a>
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__links">
+          <li><a href="index.html" class="navbar__link">Home</a></li>
+          <li><a href="products.html" class="navbar__link">Products</a></li>
+          <li><a href="features.html" class="navbar__link">Features</a></li>
+          <li><a href="pricing.html" class="navbar__link">Pricing</a></li>
+          <li><a href="about.html" class="navbar__link">About</a></li>
+          <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        </ul>
+      </nav>
+      <button
+        class="navbar__theme-toggle"
+        id="themeToggle"
+        aria-label="Switch to dark mode"
+        title="Toggle theme"
+      >
+        <!-- Sun icon — shown when dark mode is active (click to go light) -->
+        <svg class="theme-icon theme-icon--sun"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon — shown when light mode is active (click to go dark) -->
+        <svg class="theme-icon theme-icon--moon"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href="#" class="btn btn--primary navbar__cta">Get Started</a>
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =====================================================================
+         Blog Hero — Requirement 8.1
+         Headline + visual-only search bar input
+         ===================================================================== -->
+    <section class="blog-hero" aria-labelledby="blogHeroTitle">
+      <div class="container">
+        <h1 class="blog-hero__title" id="blogHeroTitle" data-animate="fade-up">
+          Insights on Global Finance &amp; Africa
+        </h1>
+        <p class="blog-hero__subtitle" data-animate="fade-up" data-animate-delay="100">
+          Stay up to date with fintech trends, product updates, and stories from across Africa.
+        </p>
+        <!-- Visual-only search bar — JS wiring deferred to a later task -->
+        <div class="blog-search" data-animate="fade-up" data-animate-delay="200" role="search">
+          <label for="blogSearch" class="sr-only">Search articles</label>
+          <input
+            type="search"
+            id="blogSearch"
+            class="blog-search__input"
+            placeholder="Search articles…"
+            aria-label="Search blog articles"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Category Filter Bar — Requirement 8.4, 8.5
+         [data-blog-filter] container with filter buttons
+         ===================================================================== -->
+    <section class="blog-filter-bar" aria-label="Filter articles by category">
+      <div class="container">
+        <div class="blog-filter" data-blog-filter role="group" aria-label="Blog category filters">
+          <button
+            class="filter-btn filter-btn--active"
+            data-category="all"
+            aria-pressed="true"
+          >All</button>
+          <button
+            class="filter-btn"
+            data-category="product-updates"
+            aria-pressed="false"
+          >Product Updates</button>
+          <button
+            class="filter-btn"
+            data-category="fintech"
+            aria-pressed="false"
+          >Fintech</button>
+          <button
+            class="filter-btn"
+            data-category="africa"
+            aria-pressed="false"
+          >Africa</button>
+          <button
+            class="filter-btn"
+            data-category="crypto"
+            aria-pressed="false"
+          >Crypto</button>
+          <button
+            class="filter-btn"
+            data-category="guides"
+            aria-pressed="false"
+          >Guides</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Featured Article — Requirement 8.2
+         Full-width card with image placeholder, title, excerpt, tag, link
+         ===================================================================== -->
+    <section class="blog-featured" aria-labelledby="featuredArticleTitle">
+      <div class="container">
+        <article class="featured-article" data-animate="fade-up">
+          <!-- Image placeholder -->
+          <div class="featured-article__image" aria-hidden="true">🌍</div>
+
+          <div class="featured-article__content">
+            <span class="blog-tag" data-category="africa">Africa</span>
+            <h2 class="featured-article__title" id="featuredArticleTitle">
+              How Falconlite Is Redefining Cross-Border Finance for Africans
+            </h2>
+            <p class="featured-article__excerpt">
+              For millions of Africans working, studying, or building businesses abroad, moving money across borders has always been expensive and slow. Falconlite is changing that — offering real-time transfers, USD virtual cards, and multi-currency wallets that put global finance within reach for everyone on the continent.
+            </p>
+            <a href="#" class="read-more-link" aria-label="Read more about how Falconlite is redefining cross-border finance">
+              Read Full Article <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Blog Grid — Requirement 8.3
+         At least 6 cards in a 3-column responsive grid
+         Each card has: image placeholder, category tag (data-category),
+         title, excerpt, author, date, read-more link
+         ===================================================================== -->
+    <section class="blog-grid-section" aria-labelledby="blogGridTitle">
+      <div class="container">
+        <h2 class="sr-only" id="blogGridTitle">Latest Articles</h2>
+        <div class="blog-grid">
+
+          <!-- Card 1 — Product Updates -->
+          <article class="blog-card" data-category="product-updates" data-animate="fade-up" data-animate-delay="100">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #2563EB, #1d4ed8);" aria-hidden="true">🚀</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="product-updates">Product Updates</span>
+              <h3 class="blog-card__title">Introducing Instant USD Virtual Cards for All Users</h3>
+              <p class="blog-card__excerpt">
+                We've made it even easier to get your USD virtual card. Starting today, all verified Falconlite users can generate a card in under 60 seconds — no waiting, no paperwork.
+              </p>
+              <div class="blog-card__meta">
+                <span>Amara Osei · 12 Jun 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about instant USD virtual cards">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 — Fintech -->
+          <article class="blog-card" data-category="fintech" data-animate="fade-up" data-animate-delay="200">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #7C3AED, #6d28d9);" aria-hidden="true">💡</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="fintech">Fintech</span>
+              <h3 class="blog-card__title">The Rise of Embedded Finance in Sub-Saharan Africa</h3>
+              <p class="blog-card__excerpt">
+                Embedded finance is transforming how African businesses offer financial services. From ride-hailing apps to e-commerce platforms, financial tools are being woven directly into everyday products.
+              </p>
+              <div class="blog-card__meta">
+                <span>Chidinma Eze · 5 Jun 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about embedded finance in Africa">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 — Crypto -->
+          <article class="blog-card" data-category="crypto" data-animate="fade-up" data-animate-delay="300">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #0891b2, #0e7490);" aria-hidden="true">₿</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="crypto">Crypto</span>
+              <h3 class="blog-card__title">Using Stablecoins to Protect Your Savings from Naira Devaluation</h3>
+              <p class="blog-card__excerpt">
+                With the naira facing continued pressure, many Nigerians are turning to USDT and USDC as a store of value. Here's how Falconlite makes it simple to hold and spend stablecoins.
+              </p>
+              <div class="blog-card__meta">
+                <span>Emeka Nwosu · 28 May 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about using stablecoins to protect savings">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 — Guides -->
+          <article class="blog-card" data-category="guides" data-animate="fade-up" data-animate-delay="100">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #059669, #047857);" aria-hidden="true">📖</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="guides">Guides</span>
+              <h3 class="blog-card__title">How to Receive International Payments as a Nigerian Freelancer</h3>
+              <p class="blog-card__excerpt">
+                Getting paid by international clients used to mean high fees and long waits. This step-by-step guide shows you how to set up your Falconlite global account and start receiving USD, GBP, or EUR directly.
+              </p>
+              <div class="blog-card__meta">
+                <span>Fatima Bello · 20 May 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about receiving international payments as a freelancer">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 — Africa -->
+          <article class="blog-card" data-category="africa" data-animate="fade-up" data-animate-delay="200">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #d97706, #b45309);" aria-hidden="true">🌐</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="africa">Africa</span>
+              <h3 class="blog-card__title">AfCFTA and the Future of Intra-African Trade Finance</h3>
+              <p class="blog-card__excerpt">
+                The African Continental Free Trade Area promises to unlock $3 trillion in economic activity. But without modern payment infrastructure, that potential remains locked. Here's what needs to change.
+              </p>
+              <div class="blog-card__meta">
+                <span>Kwame Asante · 14 May 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about AfCFTA and intra-African trade finance">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 — Product Updates -->
+          <article class="blog-card" data-category="product-updates" data-animate="fade-up" data-animate-delay="300">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #db2777, #be185d);" aria-hidden="true">✨</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="product-updates">Product Updates</span>
+              <h3 class="blog-card__title">Multi-Currency Wallets Now Support 12 New Currencies</h3>
+              <p class="blog-card__excerpt">
+                We've expanded our multi-currency wallet to include 12 additional currencies — including KES, GHS, ZAR, and CAD — giving you even more flexibility to hold and convert money on your terms.
+              </p>
+              <div class="blog-card__meta">
+                <span>Amara Osei · 7 May 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about multi-currency wallet expansion">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 — Fintech -->
+          <article class="blog-card" data-category="fintech" data-animate="fade-up" data-animate-delay="100">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #4f46e5, #4338ca);" aria-hidden="true">📊</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="fintech">Fintech</span>
+              <h3 class="blog-card__title">Open Banking in Africa: Opportunities and Challenges</h3>
+              <p class="blog-card__excerpt">
+                Open banking APIs are enabling a new wave of financial innovation across the continent. We explore the regulatory landscape, the key players, and what it means for everyday users.
+              </p>
+              <div class="blog-card__meta">
+                <span>Chidinma Eze · 30 Apr 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about open banking in Africa">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 — Guides -->
+          <article class="blog-card" data-category="guides" data-animate="fade-up" data-animate-delay="200">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #0284c7, #0369a1);" aria-hidden="true">🗺️</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="guides">Guides</span>
+              <h3 class="blog-card__title">A Beginner's Guide to Currency Conversion on Falconlite</h3>
+              <p class="blog-card__excerpt">
+                Converting currencies shouldn't require a finance degree. This guide walks you through how Falconlite's real-time conversion engine works, what rates to expect, and how to get the best deal.
+              </p>
+              <div class="blog-card__meta">
+                <span>Fatima Bello · 22 Apr 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about currency conversion on Falconlite">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 9 — Crypto -->
+          <article class="blog-card" data-category="crypto" data-animate="fade-up" data-animate-delay="300">
+            <div class="blog-card__image" style="background: linear-gradient(135deg, #7c3aed, #5b21b6);" aria-hidden="true">⛓️</div>
+            <div class="blog-card__body">
+              <span class="blog-tag" data-category="crypto">Crypto</span>
+              <h3 class="blog-card__title">Crypto-to-Fiat: How Falconlite Bridges Digital and Traditional Finance</h3>
+              <p class="blog-card__excerpt">
+                Bridging the gap between crypto and fiat is one of the biggest challenges in African fintech. Falconlite's crypto payment rails let you receive crypto and spend it as local currency — instantly.
+              </p>
+              <div class="blog-card__meta">
+                <span>Emeka Nwosu · 15 Apr 2025</span>
+                <a href="#" class="read-more-link" aria-label="Read more about crypto-to-fiat bridging">Read More →</a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.blog-grid -->
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Newsletter Signup — Requirement 8.6, 8.7, 8.8
+         Form with data-newsletter-form, aria-invalid and aria-describedby
+         hooks for JS validation (wired in Task 19)
+         ===================================================================== -->
+    <section class="newsletter-section" aria-labelledby="newsletterTitle">
+      <div class="container">
+        <h2 class="section-title" id="newsletterTitle" data-animate="fade-up">
+          Stay in the Loop
+        </h2>
+        <p class="section-subtitle" data-animate="fade-up" data-animate-delay="100">
+          Get the latest fintech insights, product updates, and Africa finance news delivered straight to your inbox.
+        </p>
+
+        <form
+          class="newsletter-form"
+          data-newsletter-form
+          novalidate
+          aria-label="Newsletter signup form"
+          data-animate="fade-up"
+          data-animate-delay="200"
+        >
+          <div>
+            <label for="newsletterEmail" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="newsletterEmail"
+              name="email"
+              class="newsletter-form__input"
+              placeholder="Enter your email address"
+              required
+              aria-required="true"
+              aria-invalid="false"
+              aria-describedby="newsletterEmailError"
+              autocomplete="email"
+            >
+            <span
+              id="newsletterEmailError"
+              class="field-error"
+              role="alert"
+              aria-live="polite"
+            ></span>
+          </div>
+          <button type="submit" class="btn btn--primary">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer — shared across all pages (Requirement 3) -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">Falconlite</a>
+        <p class="footer__tagline">Global finance for Africans. Send, spend, and receive money worldwide with ease.</p>
+        <!-- Social icons -->
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Products column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Products</h4>
+        <ul class="footer__links">
+          <li><a href="products.html" class="footer__link">USD Virtual Cards</a></li>
+          <li><a href="products.html" class="footer__link">Multi-Currency Wallets</a></li>
+          <li><a href="products.html" class="footer__link">Global Accounts</a></li>
+          <li><a href="products.html" class="footer__link">Crypto Payments</a></li>
+          <li><a href="products.html" class="footer__link">Currency Conversion</a></li>
+        </ul>
+      </div>
+
+      <!-- Company column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Company</h4>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">About Us</a></li>
+          <li><a href="blog.html" class="footer__link">Blog</a></li>
+          <li><a href="careers.html" class="footer__link">Careers</a></li>
+          <li><a href="testimonials.html" class="footer__link">Testimonials</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Legal</h4>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Terms of Service</a></li>
+          <li><a href="#" class="footer__link">Cookie Policy</a></li>
+          <li><a href="#" class="footer__link">AML Policy</a></li>
+          <li><a href="#" class="footer__link">Compliance</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="footerYear"></span> Falconlite. All rights reserved.</p>
+        <p class="footer__disclaimer">Falconlite is a financial technology company, not a bank. Banking services provided by licensed partners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Primary script — defer ensures non-render-blocking (Requirement 17.5) -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>

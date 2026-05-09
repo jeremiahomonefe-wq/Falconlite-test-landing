@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — Falconlite</title>
+  <meta name="description" content="Compare Falconlite's pricing plans for personal and business use. Find the right plan for your global financial needs.">
+
+  <!-- Google Fonts: Inter (body) and Poppins (display/headings) — Requirement 1.8 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Pre-paint theme restore — must run before stylesheet to prevent flash of wrong theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('falconlite-theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }());
+  </script>
+
+  <!-- Primary stylesheet — Requirement 1.4 -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar — shared across all pages (Requirement 2) -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">Falconlite</a>
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__links">
+          <li><a href="index.html" class="navbar__link">Home</a></li>
+          <li><a href="products.html" class="navbar__link">Products</a></li>
+          <li><a href="features.html" class="navbar__link">Features</a></li>
+          <li><a href="pricing.html" class="navbar__link">Pricing</a></li>
+          <li><a href="about.html" class="navbar__link">About</a></li>
+          <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        </ul>
+      </nav>
+      <button
+        class="navbar__theme-toggle"
+        id="themeToggle"
+        aria-label="Switch to dark mode"
+        title="Toggle theme"
+      >
+        <!-- Sun icon — shown when dark mode is active (click to go light) -->
+        <svg class="theme-icon theme-icon--sun"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon — shown when light mode is active (click to go dark) -->
+        <svg class="theme-icon theme-icon--moon"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href="#" class="btn btn--primary navbar__cta">Get Started</a>
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =====================================================================
+         Task 8 — Hero Section with Pricing Toggle
+         (Requirements 9.1, 9.2)
+         ===================================================================== -->
+    <section class="pricing-hero" aria-labelledby="pricing-hero-heading">
+      <!-- Decorative glow -->
+      <div class="pricing-hero__glow" aria-hidden="true"></div>
+
+      <div class="container pricing-hero__inner">
+        <span class="section-label" data-animate>Pricing</span>
+        <h1 class="pricing-hero__title" id="pricing-hero-heading" data-animate data-animate-delay="100">
+          Simple, Transparent Pricing
+        </h1>
+        <p class="pricing-hero__subtitle" data-animate data-animate-delay="200">
+          No hidden fees. No surprises. Pick the plan that fits your financial life and upgrade any time.
+        </p>
+
+        <!-- Personal / Business toggle (Requirement 9.1) -->
+        <div class="pricing-toggle" data-pricing-toggle data-animate data-animate-delay="300">
+          <span>Personal</span>
+          <label class="toggle-switch" aria-label="Switch between Personal and Business pricing">
+            <input type="checkbox" id="pricingSwitch" role="switch" aria-checked="false">
+            <span class="toggle-slider"></span>
+          </label>
+          <span>Business</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Task 8 — Pricing Cards Grid
+         (Requirements 9.2, 9.3, 9.4)
+         ===================================================================== -->
+    <section class="pricing-section" id="pricing-cards" aria-labelledby="pricing-cards-heading">
+      <div class="container">
+        <h2 class="sr-only" id="pricing-cards-heading">Pricing Plans</h2>
+
+        <div class="pricing-grid">
+
+          <!-- ── Starter ── -->
+          <article class="pricing-card" data-animate data-animate-delay="100">
+            <div class="pricing-card__name">Starter</div>
+            <p class="pricing-card__desc">Everything you need to get started with global finance — completely free.</p>
+
+            <div class="pricing-card__price">
+              <!-- Personal price -->
+              <span class="pricing-card__amount" data-plan="personal">$0</span>
+              <!-- Business price -->
+              <span class="pricing-card__amount" data-plan="business">$0</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+
+            <ul class="pricing-card__features" aria-label="Starter plan features">
+              <li class="pricing-card__feature pricing-card__feature--included">1 USD Virtual Card</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Multi-Currency Wallet (3 currencies)</li>
+              <li class="pricing-card__feature pricing-card__feature--included">$500/month transfer limit</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Standard exchange rates</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Email support</li>
+              <li class="pricing-card__feature pricing-card__feature--excluded">Global Account details</li>
+              <li class="pricing-card__feature pricing-card__feature--excluded">Crypto payments</li>
+              <li class="pricing-card__feature pricing-card__feature--excluded">Priority support</li>
+            </ul>
+
+            <a href="#" class="btn btn--outline" style="width: 100%; justify-content: center;">Get Started Free</a>
+          </article>
+
+          <!-- ── Growth (Recommended) ── -->
+          <article class="pricing-card pricing-card--recommended" data-animate data-animate-delay="200">
+            <!-- Most Popular badge (Requirement 9.4) -->
+            <div class="pricing-card__badge" aria-label="Most popular plan">Most Popular</div>
+
+            <div class="pricing-card__name">Growth</div>
+            <p class="pricing-card__desc">The complete toolkit for freelancers and growing businesses operating globally.</p>
+
+            <div class="pricing-card__price">
+              <!-- Personal price -->
+              <span class="pricing-card__amount" data-plan="personal">$9</span>
+              <!-- Business price -->
+              <span class="pricing-card__amount" data-plan="business">$29</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+
+            <ul class="pricing-card__features" aria-label="Growth plan features">
+              <li class="pricing-card__feature pricing-card__feature--included">5 USD Virtual Cards</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Multi-Currency Wallet (15 currencies)</li>
+              <li class="pricing-card__feature pricing-card__feature--included">$10,000/month transfer limit</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Mid-market exchange rates</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Global Account (USD, GBP, EUR)</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Crypto payments (USDT, USDC)</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Priority email &amp; chat support</li>
+              <li class="pricing-card__feature pricing-card__feature--excluded">Dedicated account manager</li>
+            </ul>
+
+            <a href="#" class="btn btn--primary" style="width: 100%; justify-content: center;">Start Growth Plan</a>
+          </article>
+
+          <!-- ── Pro ── -->
+          <article class="pricing-card" data-animate data-animate-delay="300">
+            <div class="pricing-card__name">Pro</div>
+            <p class="pricing-card__desc">Unlimited power for high-volume users and enterprises with complex financial needs.</p>
+
+            <div class="pricing-card__price">
+              <!-- Personal price -->
+              <span class="pricing-card__amount" data-plan="personal">$19</span>
+              <!-- Business price -->
+              <span class="pricing-card__amount" data-plan="business">$59</span>
+              <span class="pricing-card__period">/month</span>
+            </div>
+
+            <ul class="pricing-card__features" aria-label="Pro plan features">
+              <li class="pricing-card__feature pricing-card__feature--included">Unlimited USD Virtual Cards</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Multi-Currency Wallet (30+ currencies)</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Unlimited transfer limit</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Best-in-class exchange rates</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Global Account (10+ currencies)</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Full crypto suite (all assets)</li>
+              <li class="pricing-card__feature pricing-card__feature--included">24/7 priority support</li>
+              <li class="pricing-card__feature pricing-card__feature--included">Dedicated account manager</li>
+            </ul>
+
+            <a href="#" class="btn btn--outline" style="width: 100%; justify-content: center;">Start Pro Plan</a>
+          </article>
+
+        </div><!-- /.pricing-grid -->
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Task 8 — Feature Comparison Table
+         (Requirement 9.5)
+         ===================================================================== -->
+    <section class="pricing-comparison" aria-labelledby="comparison-heading">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <span class="section-label">Compare Plans</span>
+          <h2 class="section-title" id="comparison-heading">Everything Side by Side</h2>
+          <p class="section-subtitle">See exactly what's included in each plan so you can make the right choice.</p>
+        </div>
+
+        <div class="pricing-comparison-wrapper" data-animate data-animate-delay="100">
+          <table class="pricing-comparison-table" aria-label="Feature comparison across Starter, Growth, and Pro plans">
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">Starter</th>
+                <th scope="col">Growth</th>
+                <th scope="col">Pro</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>USD Virtual Cards</td>
+                <td>1</td>
+                <td>5</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td>Supported Currencies</td>
+                <td>3</td>
+                <td>15</td>
+                <td>30+</td>
+              </tr>
+              <tr>
+                <td>Monthly Transfer Limit</td>
+                <td>$500</td>
+                <td>$10,000</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td>Exchange Rate Type</td>
+                <td>Standard</td>
+                <td>Mid-market</td>
+                <td>Best-in-class</td>
+              </tr>
+              <tr>
+                <td>Global Account Details</td>
+                <td><span class="cross" aria-label="Not included">✗</span></td>
+                <td><span class="check" aria-label="Included">✓</span> USD, GBP, EUR</td>
+                <td><span class="check" aria-label="Included">✓</span> 10+ currencies</td>
+              </tr>
+              <tr>
+                <td>Crypto Payments</td>
+                <td><span class="cross" aria-label="Not included">✗</span></td>
+                <td><span class="check" aria-label="Included">✓</span> USDT, USDC</td>
+                <td><span class="check" aria-label="Included">✓</span> All assets</td>
+              </tr>
+              <tr>
+                <td>API Access</td>
+                <td><span class="cross" aria-label="Not included">✗</span></td>
+                <td><span class="check" aria-label="Included">✓</span></td>
+                <td><span class="check" aria-label="Included">✓</span> Full access</td>
+              </tr>
+              <tr>
+                <td>Team Members</td>
+                <td>1</td>
+                <td>5</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td>Transaction History</td>
+                <td>3 months</td>
+                <td>12 months</td>
+                <td>Unlimited</td>
+              </tr>
+              <tr>
+                <td>Customer Support</td>
+                <td>Email only</td>
+                <td>Email &amp; chat</td>
+                <td>24/7 priority</td>
+              </tr>
+              <tr>
+                <td>Dedicated Account Manager</td>
+                <td><span class="cross" aria-label="Not included">✗</span></td>
+                <td><span class="cross" aria-label="Not included">✗</span></td>
+                <td><span class="check" aria-label="Included">✓</span></td>
+              </tr>
+              <tr>
+                <td>Custom Integrations</td>
+                <td><span class="cross" aria-label="Not included">✗</span></td>
+                <td><span class="cross" aria-label="Not included">✗</span></td>
+                <td><span class="check" aria-label="Included">✓</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Task 8 — FAQ Accordion Section
+         (Requirement 9.6)
+         ===================================================================== -->
+    <section class="faq-section" aria-labelledby="pricing-faq-heading">
+      <div class="container">
+        <div class="section-header" data-animate>
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title" id="pricing-faq-heading">Pricing Questions Answered</h2>
+          <p class="section-subtitle">Everything you need to know before choosing a plan.</p>
+        </div>
+
+        <!-- Accordion group (Requirement 9.6) -->
+        <div class="accordion" data-accordion data-animate data-animate-delay="100">
+
+          <!-- FAQ 1 -->
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-pricing-1">
+              Can I switch between Personal and Business plans?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="faq-pricing-1" role="region" aria-labelledby="faq-pricing-1-trigger">
+              <div class="accordion__panel-inner">
+                Yes, you can switch between Personal and Business pricing at any time from your account settings. When upgrading, you'll be charged the prorated difference for the remainder of your billing cycle. Downgrading takes effect at the start of your next billing period.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-pricing-2">
+              Is there a free trial for paid plans?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="faq-pricing-2" role="region" aria-labelledby="faq-pricing-2-trigger">
+              <div class="accordion__panel-inner">
+                Absolutely. Both the Growth and Pro plans come with a 14-day free trial — no credit card required. You'll have full access to all features during the trial period. If you decide not to continue, your account automatically reverts to the Starter (free) plan.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-pricing-3">
+              What payment methods do you accept for subscriptions?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="faq-pricing-3" role="region" aria-labelledby="faq-pricing-3-trigger">
+              <div class="accordion__panel-inner">
+                We accept all major credit and debit cards (Visa, Mastercard, Amex), bank transfers, and cryptocurrency payments (USDT, USDC). You can also pay using your Falconlite wallet balance, which is the fastest and most convenient option for existing users.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-pricing-4">
+              Are there any hidden fees or transaction charges?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="faq-pricing-4" role="region" aria-labelledby="faq-pricing-4-trigger">
+              <div class="accordion__panel-inner">
+                No hidden fees — ever. The monthly subscription covers your plan features. Currency conversion uses transparent, published exchange rate spreads (0.5% on Growth, 0.25% on Pro). International wire transfers may incur a small flat fee of $2–$5 depending on the destination, which is always shown before you confirm.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq-pricing-5">
+              What happens if I exceed my monthly transfer limit?
+              <span class="accordion__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion__panel" id="faq-pricing-5" role="region" aria-labelledby="faq-pricing-5-trigger">
+              <div class="accordion__panel-inner">
+                If you reach your monthly transfer limit, you'll receive a notification and can either upgrade your plan instantly or wait for the limit to reset at the start of your next billing cycle. We never block transfers without warning — you'll always have the option to upgrade before a transaction is declined.
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.accordion -->
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Task 8 — Bottom CTA Section
+         (Requirement 9.7)
+         ===================================================================== -->
+    <section class="cta-banner" aria-labelledby="pricing-cta-heading">
+      <div class="container">
+        <span class="section-label" data-animate>Get Started Today</span>
+        <h2 class="cta-banner__title" id="pricing-cta-heading" data-animate data-animate-delay="100">
+          Start Free. Scale When You're Ready.
+        </h2>
+        <p class="cta-banner__subtitle" data-animate data-animate-delay="200">
+          Join 50,000+ Africans already using Falconlite to manage their global finances. No credit card required to get started.
+        </p>
+        <div class="cta-banner__actions" data-animate data-animate-delay="300">
+          <a href="#" class="btn btn--primary">Create Free Account</a>
+          <a href="contact.html" class="btn btn--outline">Talk to Sales</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer — shared across all pages (Requirement 3) -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">Falconlite</a>
+        <p class="footer__tagline">Global finance for Africans. Send, spend, and receive money worldwide with ease.</p>
+        <!-- Social icons -->
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Products column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Products</h4>
+        <ul class="footer__links">
+          <li><a href="products.html" class="footer__link">USD Virtual Cards</a></li>
+          <li><a href="products.html" class="footer__link">Multi-Currency Wallets</a></li>
+          <li><a href="products.html" class="footer__link">Global Accounts</a></li>
+          <li><a href="products.html" class="footer__link">Crypto Payments</a></li>
+          <li><a href="products.html" class="footer__link">Currency Conversion</a></li>
+        </ul>
+      </div>
+
+      <!-- Company column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Company</h4>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">About Us</a></li>
+          <li><a href="blog.html" class="footer__link">Blog</a></li>
+          <li><a href="careers.html" class="footer__link">Careers</a></li>
+          <li><a href="testimonials.html" class="footer__link">Testimonials</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Legal</h4>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Terms of Service</a></li>
+          <li><a href="#" class="footer__link">Cookie Policy</a></li>
+          <li><a href="#" class="footer__link">AML Policy</a></li>
+          <li><a href="#" class="footer__link">Compliance</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="footerYear"></span> Falconlite. All rights reserved.</p>
+        <p class="footer__disclaimer">Falconlite is a financial technology company, not a bank. Banking services provided by licensed partners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Primary script — defer ensures non-render-blocking (Requirement 17.5) -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>

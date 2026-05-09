@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — Falconlite</title>
+  <meta name="description" content="Discover all the powerful features Falconlite offers: fast payments, global accessibility, low fees, secure infrastructure, and more.">
+
+  <!-- Google Fonts: Inter (body) and Poppins (display/headings) — Requirement 1.8 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Pre-paint theme restore — must run before stylesheet to prevent flash of wrong theme -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('falconlite-theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    }());
+  </script>
+
+  <!-- Primary stylesheet — Requirement 1.4 -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navbar — shared across all pages (Requirement 2) -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo">Falconlite</a>
+      <nav class="navbar__nav" id="navMenu" aria-label="Main navigation">
+        <ul class="navbar__links">
+          <li><a href="index.html" class="navbar__link">Home</a></li>
+          <li><a href="products.html" class="navbar__link">Products</a></li>
+          <li><a href="features.html" class="navbar__link">Features</a></li>
+          <li><a href="pricing.html" class="navbar__link">Pricing</a></li>
+          <li><a href="about.html" class="navbar__link">About</a></li>
+          <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        </ul>
+      </nav>
+      <button
+        class="navbar__theme-toggle"
+        id="themeToggle"
+        aria-label="Switch to dark mode"
+        title="Toggle theme"
+      >
+        <!-- Sun icon — shown when dark mode is active (click to go light) -->
+        <svg class="theme-icon theme-icon--sun"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1"  x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1"  y1="12" x2="3"  y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon — shown when light mode is active (click to go dark) -->
+        <svg class="theme-icon theme-icon--moon"
+             width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href="#" class="btn btn--primary navbar__cta">Get Started</a>
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =====================================================================
+         Hero Section — Requirement 6.1
+         ===================================================================== -->
+    <section class="page-hero" aria-labelledby="features-hero-title">
+      <div class="container">
+        <span class="page-hero__label" data-animate="fade-up">Everything You Need</span>
+        <h1 class="page-hero__title" id="features-hero-title" data-animate="fade-up" data-animate-delay="100">
+          Powerful Features for<br>Global Finance
+        </h1>
+        <p class="page-hero__subtitle" data-animate="fade-up" data-animate-delay="200">
+          From instant cross-border payments to multi-currency wallets, Falconlite gives you every tool to operate financially on a global scale — all in one place.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Feature Cards Grid — Requirements 6.2, 6.3, 6.4
+         Eight feature cards in a responsive 3/2/1-column grid with
+         staggered fade-in animation (100ms increments per card).
+         ===================================================================== -->
+    <section class="features-page-section" aria-labelledby="features-grid-title">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-label">Core Capabilities</span>
+          <h2 class="section-title" id="features-grid-title">Built for the Modern Global User</h2>
+          <p class="section-subtitle">Every feature is designed to remove friction and give you the financial freedom you deserve.</p>
+        </div>
+
+        <!-- Responsive grid: 3 cols ≥1024px, 2 cols 768–1023px, 1 col <768px -->
+        <div class="features-page-grid">
+
+          <!-- Card 1: Fast Payments -->
+          <article class="feature-card" data-animate="fade-up" data-animate-delay="100">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Fast Payments</h3>
+            <p class="feature-card__desc">Send and receive money in seconds, not days. Our real-time payment rails process transactions instantly across 150+ countries, so your money moves as fast as your business does.</p>
+          </article>
+
+          <!-- Card 2: Global Accessibility -->
+          <article class="feature-card" data-animate="fade-up" data-animate-delay="200">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Global Accessibility</h3>
+            <p class="feature-card__desc">Access your account from anywhere in the world. Whether you're in Lagos, London, or New York, Falconlite works seamlessly across borders with full multi-language support.</p>
+          </article>
+
+          <!-- Card 3: Currency Conversion -->
+          <article class="feature-card" data-animate="fade-up" data-animate-delay="300">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="17 1 21 5 17 9"/>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                <polyline points="7 23 3 19 7 15"/>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Currency Conversion</h3>
+            <p class="feature-card__desc">Convert between 30+ currencies at interbank rates with no hidden markups. Swap NGN to USD, EUR to GBP, or crypto to fiat in real time — all within a single tap.</p>
+          </article>
+
+          <!-- Card 4: Low Fees -->
+          <article class="feature-card" data-animate="fade-up" data-animate-delay="100">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Low Fees</h3>
+            <p class="feature-card__desc">Keep more of your money with transparent, industry-low fees. No monthly charges, no surprise deductions — just a flat, honest fee structure that scales with your usage.</p>
+          </article>
+
+          <!-- Card 5: Secure Infrastructure -->
+          <article class="feature-card" data-animate="fade-up" data-animate-delay="200">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Secure Infrastructure</h3>
+            <p class="feature-card__desc">Your funds and data are protected by 256-bit AES encryption, two-factor authentication, and real-time fraud monitoring. We're regulated and compliant in every market we operate in.</p>
+          </article>
+
+          <!-- Card 6: Instant Onboarding -->
+          <article class="feature-card" data-animate="fade-up" data-animate-delay="300">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="8.5" cy="7" r="4"/>
+                <polyline points="17 11 19 13 23 9"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Instant Onboarding</h3>
+            <p class="feature-card__desc">Get verified and start transacting in under 5 minutes. Our AI-powered KYC process requires only a government ID and a selfie — no paperwork, no branch visits, no waiting.</p>
+          </article>
+
+          <!-- Card 7: Cross-Border Payments -->
+          <article class="feature-card" data-animate="fade-up" data-animate-delay="100">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Cross-Border Payments</h3>
+            <p class="feature-card__desc">Pay suppliers, freelancers, and partners anywhere in the world without the complexity of SWIFT wires. Falconlite routes payments through the fastest, cheapest corridors automatically.</p>
+          </article>
+
+          <!-- Card 8: Multi-Device Experience -->
+          <article class="feature-card" data-animate="fade-up" data-animate-delay="200">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Multi-Device Experience</h3>
+            <p class="feature-card__desc">Manage your finances seamlessly across mobile, tablet, and desktop. Your account syncs in real time so you always have the latest balance, transactions, and notifications at your fingertips.</p>
+          </article>
+
+        </div><!-- /.features-page-grid -->
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Comparison Section — Requirement 6.5
+         Falconlite vs. Traditional Banking — 5+ comparison points
+         ===================================================================== -->
+    <section class="comparison-section" aria-labelledby="comparison-title">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-label">Why Falconlite</span>
+          <h2 class="section-title" id="comparison-title">Falconlite vs. Traditional Banking</h2>
+          <p class="section-subtitle">See how Falconlite stacks up against the old way of doing international finance.</p>
+        </div>
+
+        <div class="comparison-table-wrapper" data-animate="fade-up" data-animate-delay="100">
+          <table class="comparison-table" role="table" aria-label="Feature comparison between Falconlite and traditional banks">
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">
+                  <span aria-hidden="true">⚡</span> Falconlite
+                </th>
+                <th scope="col">Traditional Bank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>International Transfer Speed</td>
+                <td>Instant – under 60 seconds</td>
+                <td>3–5 business days</td>
+              </tr>
+              <tr>
+                <td>Transfer Fees</td>
+                <td>From 0.5% — no hidden charges</td>
+                <td>$25–$50 flat + FX markup</td>
+              </tr>
+              <tr>
+                <td>Account Opening</td>
+                <td>5 minutes, fully online</td>
+                <td>Days to weeks, in-branch required</td>
+              </tr>
+              <tr>
+                <td>Currency Support</td>
+                <td>30+ currencies in one wallet</td>
+                <td>1–2 currencies per account</td>
+              </tr>
+              <tr>
+                <td>USD Virtual Card</td>
+                <td>Issued instantly, free</td>
+                <td>Not available or costly</td>
+              </tr>
+              <tr>
+                <td>24/7 Customer Support</td>
+                <td>Always on — chat &amp; email</td>
+                <td>Business hours only</td>
+              </tr>
+              <tr>
+                <td>Crypto Payments</td>
+                <td>Supported with fiat conversion</td>
+                <td>Not supported</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Bottom CTA Section — Requirement 6.6
+         ===================================================================== -->
+    <section class="cta-banner" aria-labelledby="features-cta-title">
+      <div class="container">
+        <h2 class="cta-banner__title" id="features-cta-title" data-animate="fade-up">
+          Ready to Experience the Difference?
+        </h2>
+        <p class="cta-banner__subtitle" data-animate="fade-up" data-animate-delay="100">
+          Join 50,000+ Africans who've already switched to smarter global finance. Create your free account in minutes.
+        </p>
+        <div data-animate="fade-up" data-animate-delay="200">
+          <a href="#" class="btn btn--primary">Create Free Account</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer — shared across all pages (Requirement 3) -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <!-- Brand column -->
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo">Falconlite</a>
+        <p class="footer__tagline">Global finance for Africans. Send, spend, and receive money worldwide with ease.</p>
+        <!-- Social icons -->
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Follow Falconlite on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Products column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Products</h4>
+        <ul class="footer__links">
+          <li><a href="products.html" class="footer__link">USD Virtual Cards</a></li>
+          <li><a href="products.html" class="footer__link">Multi-Currency Wallets</a></li>
+          <li><a href="products.html" class="footer__link">Global Accounts</a></li>
+          <li><a href="products.html" class="footer__link">Crypto Payments</a></li>
+          <li><a href="products.html" class="footer__link">Currency Conversion</a></li>
+        </ul>
+      </div>
+
+      <!-- Company column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Company</h4>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">About Us</a></li>
+          <li><a href="blog.html" class="footer__link">Blog</a></li>
+          <li><a href="careers.html" class="footer__link">Careers</a></li>
+          <li><a href="testimonials.html" class="footer__link">Testimonials</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal column -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Legal</h4>
+        <ul class="footer__links">
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Terms of Service</a></li>
+          <li><a href="#" class="footer__link">Cookie Policy</a></li>
+          <li><a href="#" class="footer__link">AML Policy</a></li>
+          <li><a href="#" class="footer__link">Compliance</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">&copy; <span id="footerYear"></span> Falconlite. All rights reserved.</p>
+        <p class="footer__disclaimer">Falconlite is a financial technology company, not a bank. Banking services provided by licensed partners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Primary script — defer ensures non-render-blocking (Requirement 17.5) -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
